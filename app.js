@@ -21,6 +21,9 @@ app.get('/display', (req, res) => {
   res.render('display');
 });
 
+// URL of the backend API
+const BACKEND_ENDPOINT = process.env.BACKEND || 'http://localhost:8181';
+
 //Start the server
 function startServer() {
     const PORT = process.env.PORT || 8080;
