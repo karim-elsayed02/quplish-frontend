@@ -6,13 +6,42 @@
     <h2 class="title">ECS Example Game</h2>
 
     <div id="game">
-        <div v-if="connected">
-            <ul id="chat">
-                <li v-for="message in messages">{{message}}</li>
-            </ul>
+        <div v-if="state.state == 0">
+            <p>waiting for players to join.....</p>
+            <div class="row">
+                <div v-for="player of players" class="col-sm-2 text-center">
+                <div class="player">
+                <strong>{{player}}</strong>
+                </div>
+                </div>
+            </div>
+
         </div>
-        <div v-else>
-            <p>Connecting...</p>
+        <div v-else-if="state.state == 1">
+            <h1>Game has Started</h1>
+            <div>
+                <h2>Prompts Added: </h2>
+                <div v-for="(prompt, username) in playerToPrompt" :key="username" class="row">
+                  <div class="col-sm-5 text-center">
+                    <div class="player">
+                      <strong>{{ username }}     :     {{ prompt }}</strong>
+                    </div>
+                  </div>
+                  
+                </div>
+            </div>
+        </div>
+        <div v-else-if="state.state == 2">
+            <p>Players submitting answers to prompts</p>
+        </div>
+        <div v-else-if="state.state == 3 ">
+            <p>Players voting on choices</p>
+        </div>
+        <div v-else-if="state.state == 4">
+            <%- include('Scores'); -%>
+        </div>
+        <div v-else-if="state.state == 5">
+            <%- include('gameOver'); -%>
         </div>
     </div>
 

@@ -1,0 +1,30 @@
+<template>
+    <div class="d-grid gap-3">
+      <h1>{{me.name}}</h1>
+      <h2>Think of funny promtpt</h2>
+      <input type="text" v-model="prompt" class="form-control" >
+      <button type="button" class="btn btn-success btn-sm" @click="submit()">Submit prompt</button>
+      <div v-if="me.admin">
+        <button type="button" class="btn btn-primary" @click="admin('prompt')">Next Stage</button>
+      </div>
+      <div class="modal fade" id="myModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {{fail_message}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+</template>

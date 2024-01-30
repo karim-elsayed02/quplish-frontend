@@ -1,0 +1,28 @@
+<template>
+    <h1>{{promptOnVote}}</h1>
+    <div class="box-container">
+      <!-- First Box -->
+      <div class="box">
+        <h2>{{firstAnswer}}</h2>
+        <p>{{vote1Author}}</p>
+        <p>Number of Votes: {{answer1Votes.length}}</p>
+        <p>Voted by:</p>
+        <ul>
+          <li v-for="player in answer1Votes">{{player}}</li>
+        </ul>
+      </div>
+  
+      <!-- Second Box -->
+      <div class="box">
+        <h2>{{secondAnswer}}</h2>
+        <p>User who answered: {{vote2Author}}</p>
+        <p>Number of Votes: {{answer2Votes.length}}</p>
+        <p>Voted by:</p>
+        <ul>
+          <li v-for="player in answer2Votes">{{player}}</li>
+        </ul>
+      </div>
+    </div>
+    <button v-if="me.admin" type="button" class="btn btn-secondary ml-2" @click="nextVote()">Next Stage</button>
+  </template>
+  

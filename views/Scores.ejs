@@ -1,0 +1,12 @@
+<div class="leaderboard-container">
+    <h1 class="title">Scores for Round</h1>
+    <div v-for="(score, username) in scoreList"  class="leaderboard-entry">
+      <div class="username">{{username}}</div>
+      <div class="score">{{ score }}</div>
+    </div>
+    <button v-if="me.admin" type="button" class="btn btn-secondary ml-2" @click="admin('new round')">Next Round</button>
+  </div>
+  
+
+
+ 

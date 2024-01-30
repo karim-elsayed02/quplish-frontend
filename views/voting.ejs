@@ -1,0 +1,28 @@
+<template>
+    <h2>{{me.name}}</h2>
+    <div v-if="shouldVote">
+      <!-- Big Header in the Middle -->
+    
+      
+      
+      <h1 class="text-center">{{promptOnVote}}</h1>
+      
+  
+      <!-- Two Big Boxes under the Header -->
+      <div class="box-container1">
+        <div :class="{ 'box1': true, 'disabled': isVoteDisabled }" @click="choice1()">
+            {{ firstAnswer }}
+          </div>
+        <div :class="{ 'box1': true, 'disabled': isVoteDisabled }" @click="choice2()">
+            {{ secondAnswer }}
+          </div>
+      </div>
+    </div>
+    <div v-else>
+        <h3>Sit tight while others judge you</h3>
+    </div>
+    <button v-if="me.admin" type="button" class="btn btn-secondary ml-2" @click="admin('scores')" :disabled="voteRecieved < (players.length-2)">Next Stage</button>
+
+
+    
+  </template>

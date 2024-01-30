@@ -6,13 +6,56 @@
     <h2 class="title">ECS Example Game</h2>
 
     <div id="game">
-        <div v-if="connected">
-            <%- include('chat'); -%>
+        <div v-if="me.audience">
+            <p>status: audience</p>
         </div>
-        <div v-else>
-            <p>Connecting...</p>
+        
+        <div v-if="player_state == 0">
+            <%- include('login'); -%>
         </div>
-    </div>
+        <div class="d-grid gap-3" v-else-if="state.state == 0 && player_state != 0">
+            <div :class="{ 'full-width-header': true, 'purple-background': player_state == 1 }">
+                <strong>{{me.name}}</strong>
+            </div>
+            <p>Waiting for others to join</p>
+            <div class="row">
+                <div v-for="player of players" class="col-sm-2 text-center">
+                <div class="player">
+                <strong>{{player}}</strong>
+                </div>
+                </div>
+            </div>
+            <div v-if="me.admin">
+            <button type="button" class="btn btn-primary" @click="admin('start')">Start Game</button>
+            </div>
+        </div>
+        <div v-else-if="state.state == 1 && player_state == 1">
+            <%- include('prompt'); -%>
+        </div>
+        <div v-else-if="state.state == 2 && player_state >0">
+            <div v-if="me.audience == true">
+                <p>Waiting for players to answer prompts</p>
+                <h2>Think of funny promtpt</h2>
+                <input type="text" v-model="prompt" class="form-control" >
+                <button type="button" class="btn btn-success btn-sm" @click="submit()">Submit prompt</button>
+            </div>
+            <div v-else>
+              <%- include('answer'); -%>
+            </div>
+                  
+            
+        </div>
+        <div v-else-if="state.state == 3">
+            <%- include('round'); -%>
+        </div>
+        <div v-else-if="state.state == 4">
+            <%- include('Scores'); -%>
+        </div>
+        <div v-else-if="state.state == 5">
+            <%- include('gameOver'); -%>
+        </div>
+        
+        
 
     <%- include('footer'); -%>
 

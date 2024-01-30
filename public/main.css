@@ -28,3 +28,92 @@ body {
 #chat li:nth-child(odd) { 
     background-color: rgba(0,0,0,0.2); 
 }
+.full-width-header {
+    width: 100%;
+    background-color: purple;
+    color: white; /* Set the text color to make it readable on a purple background */
+    padding: 10px; /* Adjust padding as needed */
+    text-align: center;
+}
+
+.purple-background {
+    background-color: rgb(38, 70, 95);
+    color: white; /* Set the text color to make it readable on a purple background */
+    /* Add any other styling you want for the purple background */
+}
+.player{
+    background-color: rgb(41, 74, 221);
+    color: white; /* Set the text color to make it readable on a purple background */
+    /* Add any other styling you want for the purple background */
+    text-align: center;
+}
+.prompt-container {
+    background-color: pink;
+    color: white;
+    text-align: center;
+    padding: 10px; /* Adjust as needed for padding */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    font-weight: bold;
+  }
+
+  .input-container {
+    text-align: center;
+    margin-top: 10px; /* Adjust as needed for spacing between prompt and input */
+  }
+  .box-container1 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .box1 {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .box-container {
+    display: flex;
+    justify-content: space-between; /* Adjust as needed */
+  }
+
+  /* CSS styles for the boxes */
+  .box {
+    border: 2px solid white;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    width: 48%; /* Adjust as needed */
+  }
+  .disabled {
+    /* Add styles for the disabled state here */
+    /* For example: */
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .leaderboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leaderboard-entry {
+    display: flex;
+    justify-content: space-between;
+    background-color: blue;
+    padding: 10px;
+    margin: 10px; /* Increased margin for more space between entries */
+    color: black;
+  }
+  
+  .username {
+    color: white;
+    margin-right: 10px; /* Adjust the margin to increase space between username and score */
+  }

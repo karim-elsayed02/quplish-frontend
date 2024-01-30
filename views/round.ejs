@@ -1,0 +1,8 @@
+<div>
+    <div v-if="voting">
+        <%- include('voting'); -%>
+    </div>
+    <div v-else>
+        <%- include('roundScores'); -%>
+    </div>
+</div>

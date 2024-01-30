@@ -1,0 +1,51 @@
+<template>
+    <div>
+        <div v-if="prompToanswer.length == 1">
+            <div class="prompt-container">
+                <p class="prompt">{{prompToanswer[0]}}</p>
+            </div>
+            <div class="input-container text-center">
+                <input type="text" v-model="answer" class="form-control" placeholder="answer" :disabled="isInputDisabled">
+                <button type="button" class="btn btn-primary"  @click="submitAnswer()">Submit</button>
+                <button v-if="me.admin" type="button" class="btn btn-secondary ml-2" @click="admin('vote')">Next Stage</button>
+            </div>
+        </div>
+        <div v-else>
+            <div class="prompt-container">
+                <p class="prompt">{{prompToanswer[0]}}</p>
+            </div>
+            <div class="input-container text-center">
+                <input type="text" v-model="answer" class="form-control" placeholder="answer" :disabled="isInputDisabled">
+            </div>
+            <div class="prompt-container">
+                <p class="prompt">{{prompToanswer[1]}}</p>
+            </div>
+            <div class="input-container text-center">
+                <input type="text" v-model="answer2" class="form-control" placeholder="answer" :disabled="isInputDisabled">
+                <button type="button" class="btn btn-primary"  @click="submitAnswer()">Submit</button>
+                <button v-if="me.admin" type="button" class="btn btn-secondary ml-2" @click="admin('vote')" >Next Stage</button>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  other players are still answering
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rectangle-container mt-5">
+            <input type="text" v-model="prompt" class="form-control" placeholder="Enter prompt">
+            <button type="button" class="btn btn-success btn-sm" @click="submit()">Submit prompt</button>
+          </div>
+    </div>
+</template>
